@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +11,11 @@ namespace Sudoku
         private string conType;
         private int par1;
         private int par2;
+        public Constraint(string conType, int par1, int par2)
+        {
+            this.conType = conType;
+            this.par1 = par1;
+            this.par2 = par2;
+        }
     }
 }
