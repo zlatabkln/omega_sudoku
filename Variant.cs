@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sudoku
 {
+    //variants are representation of a possible value in a specific cell
     class Variant
     {
         private int row;
@@ -28,6 +29,33 @@ namespace Sudoku
         public int getValue()
         {
             return this.val;
+        }
+
+        //override equals and getHashCode to use dictionary with variant key
+        public override bool Equals(object obj)
+        {
+            Variant v = obj as Variant;
+
+            if (v == null)
+            {
+                return false;
+            }
+            if (v == this)
+            {
+                return true;
+            }
+            return v.getRow() == this.getRow() && v.getCol() == this.getCol() && v.getValue() == this.getValue();
+        }
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 37;
+                hash = hash * 31 + row.GetHashCode();
+                hash = hash * 31 + col.GetHashCode();
+                hash = hash * 31 + val.GetHashCode();
+                return hash;
+            }
         }
     }
 }
