@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Sudoku
 {
-    class Program
+    public class Program
     {
         public static void Main()
         {
